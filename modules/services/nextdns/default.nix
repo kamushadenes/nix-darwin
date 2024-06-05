@@ -5,6 +5,7 @@ with lib;
 let
   cfg = config.services.nextdns;
   nextdns = pkgs.nextdns;
+  removeQuotes = arg: builtins.substring 1 (builtins.stringLength arg - 2) arg;
 
 in {
   options = {
@@ -31,7 +32,7 @@ in {
     launchd.daemons.nextdns = {
       path = [ nextdns ];
       serviceConfig.ProgramArguments =
-        [ "${pkgs.nextdns}/bin/nextdns" "run" ] ++ (map escapeShellArg cfg.arguments);
+        [ "${pkgs.nextdns}/bin/nextdns" "run" ] ++ cfg.arguments;
       serviceConfig.KeepAlive = true;
       serviceConfig.RunAtLoad = true;
     };
