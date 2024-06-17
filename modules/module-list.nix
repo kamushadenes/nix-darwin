@@ -30,6 +30,7 @@
   ./system/defaults/SoftwareUpdate.nix
   ./system/defaults/spaces.nix
   ./system/defaults/trackpad.nix
+  ./system/defaults/sharing.nix
   ./system/defaults/universalaccess.nix
   ./system/defaults/ActivityMonitor.nix
   ./system/etc.nix
