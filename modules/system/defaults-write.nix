@@ -30,6 +30,7 @@ let
   spaces = defaultsToList "com.apple.spaces" cfg.spaces;
   trackpad = defaultsToList "com.apple.AppleMultitouchTrackpad" cfg.trackpad;
   trackpadBluetooth = defaultsToList "com.apple.driver.AppleBluetoothMultitouch.trackpad" cfg.trackpad;
+  sharingd = defaultsToList "com.apple.sharingd" cfg.sharingd;
   universalaccess = defaultsToList "com.apple.universalaccess" cfg.universalaccess;
   ActivityMonitor = defaultsToList "com.apple.ActivityMonitor" cfg.ActivityMonitor;
   CustomUserPreferences = flatten (mapAttrsToList (name: value: defaultsToList name value) cfg.CustomUserPreferences);
@@ -82,6 +83,7 @@ in
         spaces
         trackpad
         trackpadBluetooth
+        sharingd
         universalaccess
         ActivityMonitor
         CustomUserPreferences
@@ -104,6 +106,7 @@ in
         ${concatStringsSep "\n" spaces}
         ${concatStringsSep "\n" trackpad}
         ${concatStringsSep "\n" trackpadBluetooth}
+        ${concatStringsSep "\n" sharingd}
         ${concatStringsSep "\n" universalaccess}
         ${concatStringsSep "\n" ActivityMonitor}
         ${concatStringsSep "\n" CustomUserPreferences}
